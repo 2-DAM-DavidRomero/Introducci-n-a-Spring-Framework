@@ -1,38 +1,31 @@
-//package drf.pro.hogwarts.service;
-//
-//import drf.pro.hogwarts.model.Casa;
-//import drf.pro.hogwarts.repository.CasaRepositorio;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//import java.util.Optional;
-//
-//@Service
-//public class CasaService {
-//
-//    private final CasaRepositorio casaRepository;
-//
-//    public CasaService(CasaRepositorio casaRepository) {
-//        this.casaRepository = casaRepository;
-//    }
-//
-//    public List<Casa> findAll() {
-//        return casaRepository.findAll();
-//    }
-//
-//    public Optional<Casa> findById(Long id) {
-//        return casaRepository.findById(id);
-//    }
-//
-//    public Optional<Casa> findByNombre(String nombre) {
-//        return casaRepository.findByNombre(nombre);
-//    }
-//
-//    public Casa save(Casa casa) {
-//        return casaRepository.save(casa);
-//    }
-//
-//    public void deleteById(Long id) {
-//        casaRepository.deleteById(id);
-//    }
-//}
+package drf.pro.hogwarts.service;
+
+import drf.pro.hogwarts.dtos.response.CasaDTO;
+import drf.pro.hogwarts.mappers.CasaMapper;
+import drf.pro.hogwarts.model.Casa;
+import drf.pro.hogwarts.repository.CasaRepositorio;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CasaService {
+
+    private final CasaRepositorio casaRepository;
+    private final CasaMapper casaMapper;
+
+
+    public CasaService(CasaRepositorio casaRepository, CasaMapper casaMapper) {
+        this.casaRepository = casaRepository;
+        this.casaMapper = casaMapper;
+    }
+
+    public List<CasaDTO> getAllCasas() {
+        return casaRepository.findAll()
+                .stream()
+                .map(casaMapper::toDtoC)
+                .toList();
+    }
+}
+

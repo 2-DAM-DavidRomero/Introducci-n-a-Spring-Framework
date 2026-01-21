@@ -19,6 +19,10 @@ public class Asignatura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_asignatura;
 
+    @Column(name = "nombre")
+    private String nombre;
+
+
     @Column(name = "aula")
     private String aula;
 

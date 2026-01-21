@@ -1,0 +1,13 @@
+package drf.pro.hogwarts.dtos.response;
+
+import lombok.Data;
+
+import java.time.LocalDate;
+
+@Data
+public class PorfesorDTO {
+    private Long id;
+    private String nombre;
+    private String asignatura;
+    private LocalDate fechaInicio;
+}
