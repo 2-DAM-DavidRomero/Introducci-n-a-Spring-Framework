@@ -10,9 +10,10 @@ import java.util.Scanner;
 public class EstudianteDTO {
     private Long id;
     private String nombre;
+    private String apellido;
     private int anyoCurso;
     private LocalDate fechaNacimiento;
-    private String casa;
+    private Long casaId;
     private MascotaDTO mascota;
     private List<AsignaturaCalificacionDTO> asignatura;
 }

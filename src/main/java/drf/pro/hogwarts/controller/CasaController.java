@@ -23,4 +23,6 @@ public class CasaController {
     public List<CasaDTO> getCasas() {
         return casaService.getAllCasas();
     }
+
+
 }

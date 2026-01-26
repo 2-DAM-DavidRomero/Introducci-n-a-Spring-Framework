@@ -19,8 +19,8 @@ public class EstudianteMapper {
         dto.setId(estudiante.getId());
         dto.setNombre(estudiante.getNombre());
         dto.setAnyoCurso(estudiante.getCurso());
-        dto.setFechaNacimiento(estudiante.getFechaNacimiento().toLocalDate());
-        dto.setCasa(estudiante.getCasa().getNombre());
+        dto.setFechaNacimiento(estudiante.getFechaNacimiento());
+        dto.setCasaId(estudiante.getCasa().getId());
         dto.setMascota(mascotaMapper.toDtoM(estudiante.getMascota()));
         dto.setAsignatura(
                 estudiante.getAsignaturas()

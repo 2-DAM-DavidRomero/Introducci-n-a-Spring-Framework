@@ -2,6 +2,7 @@ package drf.pro.hogwarts.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,7 +19,7 @@ public class Mascota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_mascota;
 
-    @Column(name = "nombre_mascota")
+    @Column(name = "nombre")
     private String nombre_mascota;
 
     @Column(name = "especie")
@@ -26,7 +27,7 @@ public class Mascota {
 
     @OneToOne
     @JoinColumn(name = "id_estudiante")
-    @JsonManagedReference
+    @JsonIgnore
     private Estudiante estudiante;
 
 

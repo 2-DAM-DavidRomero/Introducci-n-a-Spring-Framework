@@ -8,16 +8,17 @@ import lombok.Data;
 @Table(name = "estudiante_asignatura")
 public class EstudianteAsignatura {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private EstudianteAsignaturaId id; // Ya no hay "private Long id"
 
     @ManyToOne
-    @JoinColumn(name = "id_estudiante", nullable = false)
+    @MapsId("idEstudiante") // Conecta el ID embebido con esta relación
+    @JoinColumn(name = "id_estudiante")
     private Estudiante estudiante;
 
     @ManyToOne
-    @JoinColumn(name = "id_asignatura", nullable = false)
+    @MapsId("idAsignatura") // Conecta el ID embebido con esta relación
+    @JoinColumn(name = "id_asignatura")
     private Asignatura asignatura;
 
     private Double calificacion;
